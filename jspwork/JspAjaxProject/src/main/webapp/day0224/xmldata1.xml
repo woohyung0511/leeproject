@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<board>
+	<data id="angel" name="이우형">
+		<subject>Hello</subject>
+		<photo>../image/01.png</photo>
+	</data>
+	<data id="aaa" name="이효리">
+		<subject>ㅎㅇㅎㅇ</subject>
+		<photo>../image/02.png</photo>
+	</data>
+	<data id="bbb" name="성시경">
+		<subject>성공하자</subject>
+		<photo>../image/03.png</photo>
+	</data>
+	<data id="ccc" name="이상순">
+		<subject>취업하자</subject>
+		<photo>../image/04.png</photo>
+	</data>
+	<data id="ddd" name="이이경">
+		<subject>공부하자</subject>
+		<photo>../image/05.png</photo>
+	</data>
+</board>
