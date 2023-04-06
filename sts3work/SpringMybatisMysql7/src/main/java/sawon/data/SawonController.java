@@ -112,7 +112,7 @@ public class SawonController {
 		String path=session.getServletContext().getRealPath("/WEB-INF/image/");
 		System.out.print(path);
 		
-		//dto
+		//dto11
 		String photoname;
 		
 		//사진선택을 안 했을경우 no,했을경우
