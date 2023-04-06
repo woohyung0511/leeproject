@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTDMapper3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mycar">
+	<select id="getTotalCountOfMyCar" resultType="int">
+		select count(*) from mycar
+	</select>
+	<select id="getAllDatas" resultType="CarDto">
+		select * from mycar order by num desc
+	</select>
+	<insert id="insertOfMyCar" parameterType="CarDto">
+		insert into mycar (carname,carprice,carcolor,carguip) values(#{carname},#{carprice},#{carcolor},#{carguip})
+	</insert>
+	<select id="getOneDataOfMyCar" resultType="CarDto" parameterType="String">
+		select * from mycar where num=#{num}
+	</select>
+	<update id="updateOfMyCar" parameterType="CarDto">
+		update mycar set carname=#{carname},carprice=#{carprice},carcolor=#{carcolor},carguip=#{carguip} where num=#{num}
+	</update>
+	<delete id="deleteOfMyCar" parameterType="String">
+		delete from mycar where num=#{num}
+	</delete>
+</mapper>

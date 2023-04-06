@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTDMapper3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sawon">
+	<select id="getTotalCountOfSawon" resultType="int">
+		select count(*) from sawon
+	</select>
+	
+	<insert id="insertOfSawon" parameterType="sdto">
+		insert into sawon (name,driver,buseo,photo,ipsaday) values(#{name},#{driver},#{buseo},#{photo},now())
+	</insert>
+	
+	<select id="getAllDatasOfSawon" resultType="sdto" parameterType="map">
+		select * from sawon 
+		<if test="search!=null">
+			where ${title} like concat('%',#{search},'%')
+		</if>
+		order by num
+	</select>
+	
+	<select id="getOneDataOfSawon" resultType="sdto" parameterType="String">
+		select * from sawon where num=#{num}
+	</select>
+
+<!--수정: 무조건 수정  -->	
+<!-- 	<update id="updateOfSawon" parameterType="sdto">
+		update sawon set name=#{name},driver=${driver},buseo=#{buseo},photo=#{photo} where num=#{num}
+	</update> -->
+	
+	<!--수정: 이미지는 수정을 원할때만 수정(수정 안 하면 기존이미지 유지) -->	
+	<update id="updateOfSawon" parameterType="sdto">
+		update sawon set name=#{name},driver=#{driver},buseo=#{buseo}
+		<if test="photo!=null">
+			,photo=#{photo}
+		</if>
+		where num=#{num}
+	</update>
+	
+	<delete id="deleteOfSawon">
+		delete from sawon where num=#{num}
+	</delete>
+</mapper>
