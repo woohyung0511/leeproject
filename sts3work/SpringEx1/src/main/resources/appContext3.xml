@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- 사원데이터: 사원명은 생성자 주입,급여,입사일은 setter주입 -->
+	
+	<bean id="sdata1" class="spring.di.ex3.Sawon">
+		<constructor-arg value="하랑이"/>
+		<property name="pay" value="100"/>
+		<property name="ipsaday" value="2023-03-31"/>
+	</bean>
+	
+	<!-- 사원: 사원데이터를 ref받기..생성자로 주입 -->
+	<bean name="saw" class="spring.di.ex3.Sawon">
+		<!-- ref는 bean의 name,id로 찾는다 -->
+		<constructor-arg ref="sdata1"/>
+	</bean>
+</beans>
