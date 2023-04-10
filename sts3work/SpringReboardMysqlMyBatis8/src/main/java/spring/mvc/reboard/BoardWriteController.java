@@ -58,7 +58,8 @@ public class BoardWriteController {
 	@PostMapping("/board/insert")
 	public String insert(@ModelAttribute ReboardDto dto,
 			@RequestParam ArrayList<MultipartFile> upload,
-			HttpSession session)
+			HttpSession session,
+			@RequestParam int currentPage)
 	{
 		//업로드 할 실제경로
 		String path=session.getServletContext().getRealPath("/WEB-INF/photo");
@@ -100,6 +101,9 @@ public class BoardWriteController {
 		//insert
 		dao.insertReboard(dto);
 		
-		return "redirect:list";
+		//내용보기로 가도록 수정
+		int num=dao.getMaxNum();
+		
+		return "redirect:content?num="+num+"&currentPage="+currentPage;
 	}
 }

@@ -13,4 +13,14 @@ public interface ReboardDaoInter {
 	public void insertReboard(ReboardDto dto);
 	
 	public List<ReboardDto> getList(int satrt,int perpage);
+	
+	public void updateReadcount(int num);
+	
+	public ReboardDto getData(int num);
+	
+	public int getCheckPass(int num,int pass);
+	
+	public void deleteReboard(int num);
+	
+	public void updateReboard(ReboardDto dto);
 }

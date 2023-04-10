@@ -13,7 +13,7 @@
 </head>
 <body>
 	<div style="margin: 100px 100px;">
-		<form action="updatepass" method="post" class="form-inline">
+		<form action="delete" method="post" class="form-inline">
 			<!-- hidden -->
 			<input type="hidden" name="num" value="${num }">
 			<input type="hidden" name="currentPage" value="${currentPage }">
@@ -25,7 +25,7 @@
 			<div>
 				<input type="password" name="pass" class="form-control" style="width: 130px;"
 				required="required">
-				<button type="submit" class="btn btn-info">수정하기</button>
+				<button type="submit" class="btn btn-info">삭제하기</button>
 				<button type="button" class="btn btn-success"
 				onclick="history.back()">이전으로</button>
 			</div>

@@ -5,5 +5,6 @@
 <configuration>
 	<typeAliases>
 		<typeAlias alias="redto" type="reboard.data.model.ReboardDto"/>
+		<typeAlias alias="answerdto" type="reanswer.data.model.ReanswerDto"/>
 	</typeAliases>
 </configuration>		

@@ -12,6 +12,9 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-
+	<script type="text/javascript">
+		alert("비밀번호가 틀렸어!");
+		history.back();
+	</script>
 </body>
 </html>
