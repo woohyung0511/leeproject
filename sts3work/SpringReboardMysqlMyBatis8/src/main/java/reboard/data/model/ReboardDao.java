@@ -112,4 +112,12 @@ public class ReboardDao implements ReboardDaoInter {
 		// TODO Auto-generated method stub
 		session.update("updateOfReboard", dto);
 	}
+
+	@Override
+	public List<ReboardDto> getAllDatas() {
+		// TODO Auto-generated method stub
+		
+		return session.selectList("selectAllOfReboard");
+	}
+
 }

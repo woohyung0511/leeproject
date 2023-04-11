@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import reanswer.data.model.ReanswerDao;
 import reboard.data.model.ReboardDao;
 import reboard.data.model.ReboardDto;
 
@@ -16,6 +17,9 @@ public class BoardListController {
 
 	@Autowired
 	ReboardDao dao;
+	
+	@Autowired
+	ReanswerDao adao;
 	
 	@GetMapping("/")
 	public String start()
@@ -50,10 +54,18 @@ public class BoardListController {
 		//각페이지에서 필요한 게시글 가져오기
 		List<ReboardDto> list = dao.getList(start, perPage);
 
+		//list에 각 글에 대한 댓글 갯수 추가하기
+		for(ReboardDto d:list)
+		{
+			d.setAcount(adao.getAnswerList(d.getNum()).size());
+		}
+		
+		//각 페이지에 출력 할 시작번호
 		int no=totalCount -(currentPage-1)*perPage;
 		
+		//출력에 필요한 변수들을 model에 저장
 		model.addObject("totalCount", totalCount);
-		model.addObject("list", list);
+		model.addObject("list", list); //댓글 포함 후 전달
 		model.addObject("totalPage", totalPage);
 		model.addObject("startPage", startPage);
 		model.addObject("endPage", endPage);
@@ -65,4 +77,5 @@ public class BoardListController {
 		
 		return model;
 		}
+	
 	}

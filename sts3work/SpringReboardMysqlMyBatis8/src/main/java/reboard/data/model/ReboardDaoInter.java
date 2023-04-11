@@ -23,4 +23,6 @@ public interface ReboardDaoInter {
 	public void deleteReboard(int num);
 	
 	public void updateReboard(ReboardDto dto);
+	
+	public List<ReboardDto> getAllDatas();
 }

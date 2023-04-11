@@ -15,7 +15,14 @@ public class ReboardDto {
 	private int relevel;
 	private int readcount;
 	private Timestamp writeday;
+	private int acount; //´ñ±Û °¹¼ö Ãß°¡
 	
+	public int getAcount() {
+		return acount;
+	}
+	public void setAcount(int acount) {
+		this.acount = acount;
+	}
 	public int getNum() {
 		return num;
 	}

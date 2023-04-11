@@ -52,4 +52,9 @@
 		</if>
 			where num=#{num}
 	</update>
+	
+	<!-- 페이징없는 리스트 -->
+	<select id="selectAllOfReboard" parameterType="HashMap" resultType="redto">
+		select * from reboard order by num asc
+	</select>
 </mapper>

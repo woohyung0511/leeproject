@@ -10,13 +10,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class AnswerController {
 
 	@Autowired
-	ReanswerDao dao;
+	ReanswerDaoInter adao;
 	
 	@PostMapping("/board/ainsert")
 	public String ainsert(@ModelAttribute ReanswerDto dto,
 			@RequestParam int currentPage)
 	{
-		dao.insertReanswer(dto);
+		adao.insertReanswer(dto);
 		
 		return "redirect:content?num="+dto.getNum()+"&currentPage="+currentPage;
 	}
