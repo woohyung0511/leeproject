@@ -13,4 +13,13 @@
 <select id="getAllDatas" resultType="IpgoDto">
 	select * from ipgo order by num
 </select>
+
+<delete id="deleteIpgo" parameterType="String">
+	delete from ipgo where num=#{num}
+</delete>
+
+<select id="getData" resultType="IpgoDto" parameterType="String">
+	select * from ipgo where num=#{num}
+</select>
+
 </mapper>

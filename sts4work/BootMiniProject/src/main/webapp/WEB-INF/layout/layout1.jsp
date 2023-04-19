@@ -17,11 +17,6 @@
 	font-family: '고딕';
 	}
 	
-	div.layout div{
-		border: 1px solid gray;
-		
-	}
-	
 	div.layout div.title{
 		position: absolute;
 		top: 10px;

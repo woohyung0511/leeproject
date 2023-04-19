@@ -72,6 +72,10 @@
 		</li>
 		
 		<li>
+			<a href="${root }/member/myinfo">나의정보</a>
+		</li>
+		
+		<li>
 			<a href="${root }/load/map">오시는 길</a>
 		</li>
 	</ul>

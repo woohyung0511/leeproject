@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTDMapper3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="boot.data.mapper.MemberMapperInter">
+	<select id="getAllMembers" resultType="MemberDto">
+		select * from bootmember order by id asc
+	</select>
+	
+	<select id="insertMember" parameterType="MemberDto">
+		insert into bootmember (name,id,pass,photo,hp,addr,email,gaipday) values (#{name},#{id},#{pass},#{photo},#{hp},#{addr},#{email},now())
+	</select>
+	
+	<select id="getSearchId" parameterType="String" resultType="int">
+		select count(*) from bootmember where id=#{id}
+	</select>
+</mapper>

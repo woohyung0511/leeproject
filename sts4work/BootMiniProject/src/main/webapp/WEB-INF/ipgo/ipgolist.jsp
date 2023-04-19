@@ -61,7 +61,7 @@
 		<tr>
 			<td>
 				<button type="button" class="btn btn-info" onclick="location.href=''">수정</button>
-				<button type="button" class="btn btn-info" onclick="location.href=''">삭제</button>
+				<button type="button" class="btn btn-info" onclick="location.href='delete?num=${dto.num}'">삭제</button>
 			</td>
 		</tr>
 	</c:forEach>
