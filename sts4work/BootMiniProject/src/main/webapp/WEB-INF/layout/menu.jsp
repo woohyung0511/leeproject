@@ -59,9 +59,11 @@
 			<a href="${root }/board/list">게시판</a>
 		</li>
 		
+		<c:if test="${sessionScope.loginok!=null && sessionScope.myid=='admin' }">
 		<li>
 			<a href="${root }/member/list">회원목록</a>
 		</li>
+		</c:if>
 		
 		<li>
 			<a href="${root }/login/main">로그인</a>

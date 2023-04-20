@@ -9,7 +9,23 @@
 		insert into bootmember (name,id,pass,photo,hp,addr,email,gaipday) values (#{name},#{id},#{pass},#{photo},#{hp},#{addr},#{email},now())
 	</select>
 	
+	<!-- id중복체크 -->
 	<select id="getSearchId" parameterType="String" resultType="int">
 		select count(*) from bootmember where id=#{id}
 	</select>
+	
+	<!-- id에 따른 이름 반환 -->
+	<select id="getName" parameterType="String" resultType="String">
+		select name from bootmember where id=#{id}
+	</select>
+	
+	<!-- id와 pass 파라미터로 넘겨서(map) 1or 0 -->
+	<select id="loginIdPassCheck" parameterType="Map" resultType="int">
+		select count(*) from bootmember where id=#{id} and pass=#{pass}
+	</select>
+	
+	<select id="getDataById" parameterType="String" resultType="MemberDto">
+		select * from bootmember where id=#{id}
+	</select>
+	
 </mapper>

@@ -15,12 +15,15 @@
 	<div style="margin: 200px;">
 		<table class="table table-bordered">
 			<c:forEach var="dto" items="${list }">
+			<c:if test="${sessionScope.loginok!=null && sessionScope.myid==dto.id }">
 				<tr>
 					<td style="width: 250px;" align="center" rowspan="5">
 						<img alt="" src="../photo/${dto.photo }" width="220"
 						height="250" border="1">
 						<br>
-						<input type="file" id="newphoto" style="display: none;" num=${dto.num }> <!-- 수정 시 호출 -->
+						<input type="file" id="newphoto" style="display: none;" num=${dto.num }> 
+						
+						<!-- 수정 시 호출 -->
 						<button type="button" class="btn btn-info" id="btnnewphoto">사진수정</button>
 					</td>
 					
@@ -51,6 +54,7 @@
 				<tr>
 					<td style="width: 300px;">주소: ${dto.addr }</td>
 				</tr>
+				</c:if>
 			</c:forEach>
 		</table>
 	</div>
