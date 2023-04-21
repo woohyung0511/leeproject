@@ -28,4 +28,17 @@
 		select * from bootmember where id=#{id}
 	</select>
 	
+	<delete id="deleteMember" parameterType="String">
+		delete from bootmember where num=#{num}
+	</delete>
+	
+	<!-- 이미지파일 수정 -->
+	<update id="updatePhoto" parameterType="Map">
+		update bootmember set photo=#{photo} where num=#{num}
+	</update>
+	
+	<!-- 수정 -->
+	<update id="updateMember" parameterType="MemberDto">
+		update bootmember set name=#{name},hp=#{hp},addr=#{addr},email=#{email} where num=#{num}
+	</update>
 </mapper>

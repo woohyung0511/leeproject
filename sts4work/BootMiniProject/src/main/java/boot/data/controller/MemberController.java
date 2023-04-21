@@ -102,4 +102,54 @@ public class MemberController {
 		return "/member/myinfo";
 	}
 	
+	@GetMapping("/member/delete")
+	@ResponseBody
+	public void delete(String num)
+	{
+		service.deleteMember(num);
+	}
+	
+	//info에서 사진만 수정
+	@PostMapping("/member/pupdate")
+	@ResponseBody
+	public void pupdate(String num,MultipartFile photo,
+			HttpSession session)
+	{
+		//업로드 경로
+		String path=session.getServletContext().getRealPath("/photo");
+		
+		//파일명 구하기
+		SimpleDateFormat sdf=new SimpleDateFormat("yyyyMMddHHmmss");
+		String fileName="f_"+sdf.format(new Date())+photo.getOriginalFilename();
+		
+		try {
+			photo.transferTo(new File(path+"\\"+fileName));
+			
+			service.updatePhoto(num, fileName); //db사진 수정
+			session.setAttribute("loginphoto", fileName); //세션의 사진 수정
+			
+		} catch (IllegalStateException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	//수정 폼에 출력 할 데이터 변환
+	@GetMapping("/member/updatefrom")
+	@ResponseBody
+	public MemberDto getData(String num)
+	{
+		return service.getDataById(num);
+	}
+	
+	//수정
+	@PostMapping("/member/update")
+	@ResponseBody
+	public void update(MemberDto dto,HttpSession session)
+	{
+		service.updateMember(dto);
+		
+		//세션에 저장 된 이름 변경
+		session.setAttribute("loginname", dto.getName());
+	}
 }

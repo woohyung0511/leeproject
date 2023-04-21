@@ -36,7 +36,7 @@
 					<td>${dto.hp }</td>
 					<td>${dto.addr }</td>
 					<td>${dto.email }</td>
-					<td><input type="checkbox" class="del" num=${dto.num }></td>
+					<td><input type="checkbox" class="del" num=${dto.num } name="check"></td>
 				</tr>
 			</c:forEach>
 			
@@ -47,5 +47,53 @@
 				</td>
 			</tr>
 	</table>
+	
+	<script type="text/javascript">
+	$("#allcheck").click(function(){
+		
+		/* if($("#allcheck").is(':checked')) {
+			$("input[name=check]").prop("checked", true);
+		} else {
+			$("input[name=check]").prop("checked", false);
+		} */
+		
+		var chk=$(this).is(":checked");
+		
+		$(".del").prop("checked",chk);
+		
+	})
+	
+	$("#btnmemberdel").click(function(){
+		
+		//체크 한 상품 갯수 구하기
+		var cnt=$(".del:checked").length;
+		
+		if(cnt==0){
+			alert("먼저 삭제 할 번호를 선택 해 주세요");
+			return; //종료
+		}
+		
+		$(".del:checked").each(function(){
+
+			var num=$(this).attr("num");
+
+			$.ajax({
+				
+				type:"get",
+				dataType:"text",
+				url:"delete",
+				data:{"num":num},
+				success:function(){
+					
+					alert("삭제되었습니다");
+					 
+					location.reload();
+				}
+			});
+		})
+	})
+		
+		
+	</script>
 </body>
 </html>

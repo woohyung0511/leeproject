@@ -18,7 +18,7 @@
 </head>
 <body>
 <c:set var="root" value="<%=request.getContextPath() %>"/>
-<img alt="" src="${root }/image/banner-1.jpg"><br><br>	
+<img alt="" src="${root }/image/banner-1.gif"><br><br>	
 <img alt="" src="${root }/image/banner-2.jpg"><br><br>	
 <img alt="" src="${root }/image/banner-3.jpg"><br><br>	
 <h1><b>Main Page 입니다</b></h1>

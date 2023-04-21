@@ -15,12 +15,12 @@
 	<c:set var="root" value="<%=request.getContextPath() %>"/>
 	
 	<c:if test="${sessionScope.loginok==null }">
-		<img alt="" src="${root }/image/19.jpg" width="130" height="130"
+		<img alt="" src="${root }/image/19.jpg" style="width: 130px; height:130px;"
 		class="img-circle">
 	</c:if>
 	
 	<c:if test="${sessionScope.loginok!=null }">
-		<img alt="" src="${root }/photo/${sessionScope.loginphoto}" width="130" height="130"
+		<img alt="" src="${root }/photo/${sessionScope.loginphoto}" style="width: 130px; height:130px;"
 		class="img-circle">
 	</c:if>
 	
