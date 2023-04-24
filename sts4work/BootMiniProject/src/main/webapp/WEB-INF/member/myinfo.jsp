@@ -49,8 +49,8 @@
 		//수정 버튼 클릭 시 모달에 데이터 넣기
 		$("#btnupdate").click(function(){
 			
-			updatenum=$(this).attr("num");
-			//alert(updatenum);
+			var updatenum=$(this).attr("num");
+			alert(updatenum);
 			var name=$("#uname").val();
 			var email=$("#uemail").val();
 			var hp=$("#uhp").val();
@@ -59,7 +59,7 @@
 			var data="num="+updatenum+"&name="+name+"&email="+email+"&hp="+hp+"&addr="+addr;
 			console.log(data);
 			
-			$.ajax({
+			 $.ajax({
 				
 				type:"post",
 				dataType:"text",
@@ -69,7 +69,7 @@
 
 					location.reload();
 				}
-			});
+			}); 
 			
 		})
 
@@ -100,7 +100,7 @@
 								<div class="modal-body">
 									<div>
 										<label for="name">Name:</label>
-									 	<input type="text" class="form-control" value="${dto.name }"  id="uname"> 
+									 	<input type="text" class="form-control" value="${dto.name }"  id="uname" > 
 									 </div>
 									<div>
 										<label for="email">email:</label>
@@ -115,10 +115,10 @@
 									 	<input type="text" class="form-control" value="${dto.addr }"  id="uaddr"> 
 									 </div>
 								</div>
-
+									
 								<div class="modal-footer">
 									<button type="button" class="btn btn-default"
-										data-dismiss="modal" id="btnupdate">수정</button>
+										data-dismiss="modal" id="btnupdate" num="${dto.num }">수정</button>
 									<button type="button" class="btn btn-default"
 										data-dismiss="modal">Close</button>
 								</div>
@@ -136,7 +136,7 @@
 						<input type="file" id="newphoto" style="display: none;" num="${dto.num }"> 
 							
 							<!-- 수정 시 호출 -->
-							<button type="button" class="btn btn-info" id="btnnewphoto">사진수정</button>
+							<button type="button" class="btn btn-info" id="btnnewphoto" >사진수정</button>
 						</td>
 
 						<td style="width: 300px;">회원명: ${dto.name }</td>
