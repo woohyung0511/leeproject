@@ -25,9 +25,9 @@
 
 	<table class="table table-bordered" style="width: 1000px;">
 		<tr bgcolor="#ffc0cb">
-			<th width="60">번호</th>
-			<th width="160">작성자</th>
+			<th width="60">번호</th>			
 			<th width="460">제목</th>
+			<th width="160">작성자</th>
 			<th width="80">조회</th>
 			<th width="160">등록일</th>
 		</tr>
@@ -54,6 +54,19 @@
 									<span class="glyphicon glyphicon-paperclip" style="color: gray;"></span>
 								</c:if>
 						</a>		
+					</td>
+
+					<td>
+						${a.content }
+					</td>
+					
+					
+					<td>
+						${a.readcount }
+					</td>
+					
+					<td>
+						${a.writeday }
 					</td>
 				</tr>
 			</c:forEach>
