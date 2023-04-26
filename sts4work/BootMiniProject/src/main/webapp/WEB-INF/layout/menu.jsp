@@ -80,6 +80,10 @@
 		<li>
 			<a href="${root }/load/map">오시는 길</a>
 		</li>
+		
+		<li>
+			<a href="${root }/smart/list">스게판</a>
+		</li>
 	</ul>
 </body>
 </html>

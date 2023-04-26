@@ -108,11 +108,12 @@
 				data:{"idx":idx,"content":content},
 				success:function(){
 					
-					location.reload();
+					list();
 				}
 			})
 		})
 	})
+	
 	//사용자 함수 list
 	function list() {
 		$.ajax({

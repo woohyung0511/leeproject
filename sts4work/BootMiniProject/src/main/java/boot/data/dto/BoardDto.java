@@ -11,6 +11,7 @@ import lombok.Data;
 @Alias("BoardDto")
 public class BoardDto {
 
+	private int acount;
 	private String num;
 	private String name;
 	private String myid;

@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import boot.data.dto.BoardDto;
+import boot.data.service.BoardAnserService;
 import boot.data.service.BoardService;
 import boot.data.service.MemberService;
 
@@ -28,6 +29,9 @@ public class BoardController {
 	
 	@Autowired
 	MemberService mservice;
+	
+	@Autowired
+	BoardAnserService aservice;
 	
 	@GetMapping("/board/list")
 	   public ModelAndView list(@RequestParam(value = "currentPage", defaultValue = "1") int currentPage) {
@@ -59,6 +63,12 @@ public class BoardController {
 	      // 각 페이지에서 필요한 게시글 가져오기
 	      List<BoardDto> list = service.getList(start, perPage);
 
+	      //댓글 갯수 추가
+	      for(BoardDto b:list)
+	      {
+	    	  b.setAcount(aservice.getAllAnswers(b.getNum()).size());
+	      }
+	      
 	      // 각 페이지에 출력할 시작번호
 	      int no = totalCount - (currentPage - 1) * perPage;
 
