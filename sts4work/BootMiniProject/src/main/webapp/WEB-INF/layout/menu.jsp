@@ -84,6 +84,10 @@
 		<li>
 			<a href="${root }/smart/list">스게판</a>
 		</li>
+		
+		<li>
+			<a href="${root }/reboard/list">답게판</a>
+		</li>
 	</ul>
 </body>
 </html>
